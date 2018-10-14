@@ -1,5 +1,6 @@
 from flask import Flask
 from flask_restful import Api, Resource
+import os
 
 app = Flask(__name__)
 api = Api(app)
@@ -34,4 +35,8 @@ class Episode(Resource):
 # hit http://127.0.0.1:5000/ep/0 for last episode
 api.add_resource(Episode, '/ep/<string:num>')
 
-app.run(debug=False)
+# app.run(debug=False)
+
+if __name__ == '__main__':
+    port = int(os.environ.get('PORT', 5000)) #The port to be listening to — hence, the URL must be <hostname>:<port>/ inorder to send the request to this program
+    app.run(host='0.0.0.0', port=port)  #Start listening
