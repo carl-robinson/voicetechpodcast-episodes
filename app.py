@@ -22,6 +22,10 @@ episodes = [
     {'num': '12', 'title': 'Fast Scalable Voice IoT Apps - Syed Ahmed, PubNub', 'mp3': 'https://www.buzzsprout.com/159584/829047-fast-scalable-voice-iot-apps-syed-ahmed-pubnub-voice-tech-podcast-ep-012.mp3'}
 ]
 
+episode_string = ''.join([''.join(['Episode ', ep['num'], ' - ', ep['title'], ', ']) for ep in episodes])
+episode_string = 'Here are the available episodes. When you know what episode you want to play, you can interrupt me anytime by saying, \'Alexa, play Episode 7, or whatever episode number it is\'. Here you go: ' + episode_string[:-2]  # remove final comma
+episode_feed = {'topics': episode_string, 'min_episode':1, 'max_episode':len(episodes)}
+
 class Episode(Resource):
     def get(self, num):
         try:
@@ -34,6 +38,15 @@ class Episode(Resource):
 # hit http://127.0.0.1:5000/ep/1 for episode 1
 # hit http://127.0.0.1:5000/ep/0 for last episode
 api.add_resource(Episode, '/ep/<string:num>')
+
+class Feed(Resource):
+    def get(self):
+        return episode_feed, 200
+
+# hit http://127.0.0.1:5000/feed
+api.add_resource(Feed, '/feed')
+
+# {"topics":"Here are the available episodes. When you know what episode to play, you can interrupt me anytime by saying, 'Alexa, play Episode 7, or whatever episode number it is'. Here you go: Episode 20 - Jeanine\u2019s Spanish Siesta, Episode 19 - Underrated Travel Locations: Guatemala, Episode 18 - Big Lovin\u2019 Utah\u2019s National Parks, Episode 17 - Packing Light, Light-ish\u2026, Episode 16 - Pod Q&amp;A \u2013 Unlimited Data Abroad?, Episode 15 - A Little Bit of Work Travel &amp; A Lot A Bit of Soccer, Episode 14 - South Africa Travel Tips &amp; World Cup 2010, Episode 13 - Thank you, Anthony Bourdain, Episode 12 - Iceland &amp; Panama; Let\u2019s Explore the World Cup Newbies, Episode 11 - Korean Spa Day\u2026 kinda, Episode 10 - Back to Life, Back from the Philippines, Episode 9 - Tips for Travel Beginners, Episode 8 - Some of Our Favorite Places, Episode 7 - Solo Dolo Traveling, Episode 6 - Road Trip Tips &amp; Gas Station Snacks, Episode 5 - Pod Q&amp;A \u2013 Strangers?, Episode 4 - 2018 Travel Plan, Planning, Episode 3 - Packing For Hiking Trips; Don\u2019t Forget Your Poop Shovel!, Episode 2 - How to Get the Cheapest Airfare; Bc We\u2019re Poor, Episode 1 - Intro to Podcast","min_episode":1,"max_episode":20}
 
 # app.run(debug=False)
 
