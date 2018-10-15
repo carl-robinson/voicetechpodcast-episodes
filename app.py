@@ -14,7 +14,7 @@ app = Flask(__name__)
 api = Api(app)
 
 # escape any ' or \
-# need ?download=true at end of mp3 link?
+# MUST remove any ampersands (&) or feed will break
 episodes = [
     {'num': '1', 'title': 'Speech to Text - Eric Bolo, Batvoice', 'mp3': 'https://www.buzzsprout.com/159584/691682-speech-to-text-eric-bolo-batvoice-voice-tech-podcast-ep-001.mp3'},
     {'num': '2', 'title': 'Voice AI for eCommerce - John Fitzpatrick, Voysis', 'mp3': 'https://www.buzzsprout.com/159584/706405-voice-ai-for-ecommerce-john-fitzpatrick-voysis-voice-tech-podcast-ep-002.mp3'},
@@ -26,14 +26,15 @@ episodes = [
     {'num': '8', 'title': 'Signal Processing Basics for Audio - Dogac Basaran, CNRS', 'mp3': 'https://www.buzzsprout.com/159584/779373-signal-processing-basics-for-audio-dogac-basaran-cnrs-voice-tech-podcast-ep-008.mp3'},
     {'num': '9', 'title': 'Hum a Fingerprint, Extract a Melody - Dogac Basaran, CNRS', 'mp3': 'https://www.buzzsprout.com/159584/791569-hum-a-fingerprint-extract-a-melody-dogac-basaran-cnrs-voice-tech-podcast-ep-009.mp3'},
     {'num': '10', 'title': 'Podcasts of the Future - Bryan Colligan, AlphaVoice', 'mp3': 'https://www.buzzsprout.com/159584/804581-podcasts-of-the-future-bryan-colligan-alphavoice-voice-tech-podcast-ep-010.mp3'},
-    {'num': '11', 'title': 'Audio Branding & Sound Design - Sebastian Hanfland, Hanfland & Friends', 'mp3': 'https://www.buzzsprout.com/159584/817053-audio-branding-sound-design-sebastian-hanfland-hanfland-friends-voice-tech-podcast-ep-011.mp3'},
+    {'num': '11', 'title': 'Audio Branding and Sound Design - Sebastian Hanfland, Hanfland and Friends', 'mp3': 'https://www.buzzsprout.com/159584/817053-audio-branding-sound-design-sebastian-hanfland-hanfland-friends-voice-tech-podcast-ep-011.mp3'},
     {'num': '12', 'title': 'Fast Scalable Voice IoT Apps - Syed Ahmed, PubNub', 'mp3': 'https://www.buzzsprout.com/159584/829047-fast-scalable-voice-iot-apps-syed-ahmed-pubnub-voice-tech-podcast-ep-012.mp3'}
 ]
 
-episode_string = "Episode 12 - Fast Scalable Voice IoT Apps - Syed Ahmed, PubNub, Episode 11 - Audio Branding and Sound Design - Sebastian Hanfland, Hanfland and Friends"
-# episode_string = ''.join([''.join(['Episode ', ep['num'], ' - ', ep['title'], ', ']) for ep in reversed(episodes)])
-# episode_string = episode_string[:-2]  # remove final comma
+# episode_string = "Episode 12 - Fast Scalable Voice IoT Apps - Syed Ahmed, PubNub, Episode 11 - Audio Branding and Sound Design - Sebastian Hanfland, Hanfland and Friends"
+episode_string = ''.join([''.join(['Episode ', ep['num'], ' - ', ep['title'], '. ']) for ep in reversed(episodes)])
+episode_string = episode_string[:-2]  # remove final comma
 # episode_string = 'hello hello hello'
+# {"topics":"Here are the available episodes. When you know what episode to play, you can interrupt me anytime by saying, 'Alexa, play Episode 7, or whatever episode number it is'. Here you go: Episode 20 - Jeanine\u2019s Spanish Siesta, Episode 19 - Underrated Travel Locations: Guatemala, Episode 18 - Big Lovin\u2019 Utah\u2019s National Parks, Episode 17 - Packing Light, Light-ish\u2026, Episode 16 - Pod Q&amp;A \u2013 Unlimited Data Abroad?, Episode 15 - A Little Bit of Work Travel &amp; A Lot A Bit of Soccer, Episode 14 - South Africa Travel Tips &amp; World Cup 2010, Episode 13 - Thank you, Anthony Bourdain, Episode 12 - Iceland &amp; Panama; Let\u2019s Explore the World Cup Newbies, Episode 11 - Korean Spa Day\u2026 kinda, Episode 10 - Back to Life, Back from the Philippines, Episode 9 - Tips for Travel Beginners, Episode 8 - Some of Our Favorite Places, Episode 7 - Solo Dolo Traveling, Episode 6 - Road Trip Tips &amp; Gas Station Snacks, Episode 5 - Pod Q&amp;A \u2013 Strangers?, Episode 4 - 2018 Travel Plan, Planning, Episode 3 - Packing For Hiking Trips; Don\u2019t Forget Your Poop Shovel!, Episode 2 - How to Get the Cheapest Airfare; Bc We\u2019re Poor, Episode 1 - Intro to Podcast","min_episode":1,"max_episode":20}
 episode_feed = {'topics': episode_string, 'min_episode': 1, 'max_episode': len(episodes)}
 
 class Episode(Resource):
@@ -55,8 +56,6 @@ class Feed(Resource):
 
 # hit http://127.0.0.1:5000/feed
 api.add_resource(Feed, '/feed')
-
-# {"topics":"Here are the available episodes. When you know what episode to play, you can interrupt me anytime by saying, 'Alexa, play Episode 7, or whatever episode number it is'. Here you go: Episode 20 - Jeanine\u2019s Spanish Siesta, Episode 19 - Underrated Travel Locations: Guatemala, Episode 18 - Big Lovin\u2019 Utah\u2019s National Parks, Episode 17 - Packing Light, Light-ish\u2026, Episode 16 - Pod Q&amp;A \u2013 Unlimited Data Abroad?, Episode 15 - A Little Bit of Work Travel &amp; A Lot A Bit of Soccer, Episode 14 - South Africa Travel Tips &amp; World Cup 2010, Episode 13 - Thank you, Anthony Bourdain, Episode 12 - Iceland &amp; Panama; Let\u2019s Explore the World Cup Newbies, Episode 11 - Korean Spa Day\u2026 kinda, Episode 10 - Back to Life, Back from the Philippines, Episode 9 - Tips for Travel Beginners, Episode 8 - Some of Our Favorite Places, Episode 7 - Solo Dolo Traveling, Episode 6 - Road Trip Tips &amp; Gas Station Snacks, Episode 5 - Pod Q&amp;A \u2013 Strangers?, Episode 4 - 2018 Travel Plan, Planning, Episode 3 - Packing For Hiking Trips; Don\u2019t Forget Your Poop Shovel!, Episode 2 - How to Get the Cheapest Airfare; Bc We\u2019re Poor, Episode 1 - Intro to Podcast","min_episode":1,"max_episode":20}
 
 # app.run(debug=False)
 
