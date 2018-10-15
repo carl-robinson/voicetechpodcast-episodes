@@ -30,7 +30,7 @@ episodes = [
     {'num': '12', 'title': 'Fast Scalable Voice IoT Apps - Syed Ahmed, PubNub', 'mp3': 'https://www.buzzsprout.com/159584/829047-fast-scalable-voice-iot-apps-syed-ahmed-pubnub-voice-tech-podcast-ep-012.mp3'}
 ]
 
-episode_string = "Episode 12 - Fast Scalable Voice IoT Apps - Syed Ahmed, PubNub, Episode 11 - Audio Branding & Sound Design - Sebastian Hanfland, Hanfland & Friends"
+episode_string = "Episode 12 - Fast Scalable Voice IoT Apps - Syed Ahmed, PubNub, Episode 11 - Audio Branding and Sound Design - Sebastian Hanfland, Hanfland and Friends"
 # episode_string = ''.join([''.join(['Episode ', ep['num'], ' - ', ep['title'], ', ']) for ep in reversed(episodes)])
 # episode_string = episode_string[:-2]  # remove final comma
 # episode_string = 'hello hello hello'
