@@ -2,6 +2,14 @@ from flask import Flask
 from flask_restful import Api, Resource
 import os
 
+# deployed here:
+# https://dashboard.heroku.com/apps/voicetechpodcast-episodes/deploy/github
+
+# links:
+# https://codeburst.io/this-is-how-easy-it-is-to-create-a-rest-api-8a25122ab1f3
+# https://medium.freecodecamp.org/how-to-host-lightweight-apps-for-free-a29773e5f39e
+
+
 app = Flask(__name__)
 api = Api(app)
 
@@ -23,8 +31,9 @@ episodes = [
 ]
 
 episode_string = ''.join([''.join(['Episode ', ep['num'], ' - ', ep['title'], ', ']) for ep in reversed(episodes)])
-episode_string = 'Here are the available episodes. When you know what episode you want to play, you can interrupt me anytime by saying, \'Alexa, play Episode 7, or whatever episode number it is\'. Here you go: ' + episode_string[:-2]  # remove final comma
-episode_feed = {'topics': episode_string, 'min_episode':1, 'max_episode':len(episodes)}
+# episode_string = 'Here are the available episodes. When you know what episode you want to play, you can interrupt me anytime by saying, \'Alexa, play Episode 7, or whatever episode number it is\'. Here you go: ' + episode_string[:-2]  # remove final comma
+episode_string = 'hello hello hello'
+episode_feed = {'topics': episode_string, 'min_episode': 1, 'max_episode': len(episodes)}
 
 class Episode(Resource):
     def get(self, num):
