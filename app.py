@@ -31,8 +31,8 @@ episodes = [
 ]
 
 episode_string = ''.join([''.join(['Episode ', ep['num'], ' - ', ep['title'], ', ']) for ep in reversed(episodes)])
-# episode_string = 'Here are the available episodes. When you know what episode you want to play, you can interrupt me anytime by saying, \'Alexa, play Episode 7, or whatever episode number it is\'. Here you go: ' + episode_string[:-2]  # remove final comma
-episode_string = 'hello hello hello'
+episode_string = episode_string[:-2]  # remove final comma
+# episode_string = 'hello hello hello'
 episode_feed = {'topics': episode_string, 'min_episode': 1, 'max_episode': len(episodes)}
 
 class Episode(Resource):
