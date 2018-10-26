@@ -54,11 +54,11 @@ class Episode(Resource):
 
 # url endpoint for information on a specific episode
 # For a specified episode e.g. episode 1:
-# debug: http://127.0.0.1:5000/ep/1
-# live: https://voicetechpodcast-episodes.herokuapp.com/ep/1
+    # debug: http://127.0.0.1:5000/ep/1
+    # live: https://voicetechpodcast-episodes.herokuapp.com/ep/1
 # For the latest episode:
-# debug: http://127.0.0.1:5000/ep/0
-# live: https://voicetechpodcast-episodes.herokuapp.com/ep/0
+    # debug: http://127.0.0.1:5000/ep/0
+    # live: https://voicetechpodcast-episodes.herokuapp.com/ep/0
 # sample output: {"num": "12", "title": "Fast Scalable Voice IoT Apps - Syed Ahmed, PubNub", "mp3": "https://www.buzzsprout.com/159584/829047-fast-scalable-voice-iot-apps-syed-ahmed-pubnub-voice-tech-podcast-ep-012.mp3"}
 api.add_resource(Episode, '/ep/<string:num>')
 
@@ -68,8 +68,8 @@ class Feed(Resource):
         return episode_feed, 200
 
 # url endpoint for list of all episodes
-# debug: hit http://127.0.0.1:5000/feed
-# live: hit https://voicetechpodcast-episodes.herokuapp.com/feed
+    # debug: hit http://127.0.0.1:5000/feed
+    # live: hit https://voicetechpodcast-episodes.herokuapp.com/feed
 # sample output: {"topics": "Episode 12 - Fast Scalable Voice IoT Apps - Syed Ahmed, PubNub. Episode 11 - Audio Branding and Sound Design - Sebastian Hanfland, Hanfland and Friends. Episode 10 - Podcasts of the Future - Bryan Colligan, AlphaVoice. Episode 9 - Hum a Fingerprint, Extract a Melody - Dogac Basaran, CNRS. Episode 8 - Signal Processing Basics for Audio - Dogac Basaran, CNRS. Episode 7 - Perception of Smiles in the Voice - Pablo Arias, IRCAM. Episode 6 - Deaf Person Calling - Benjamin Etienne, Rogervoice. Episode 5 - The Art of Sound in Motion - Greg Beller, IRCAM. Episode 4 - Building Knight Rider's KITT - Charles Cadbury, Champers Advisory. Episode 3 - Vivatech 2018 Voice Startup Summary. Episode 2 - Voice AI for eCommerce - John Fitzpatrick, Voysis. Episode 1 - Speech to Text - Eric Bolo, Batvoice", "min_episode": 1, "max_episode": 12}
 api.add_resource(Feed, '/feed')
 
