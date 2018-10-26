@@ -9,11 +9,13 @@ import os
 # https://codeburst.io/this-is-how-easy-it-is-to-create-a-rest-api-8a25122ab1f3
 # https://medium.freecodecamp.org/how-to-host-lightweight-apps-for-free-a29773e5f39e
 
-
+# create objects
 app = Flask(__name__)
 api = Api(app)
 
-# escape any ' or \
+# list of dictionaries of episodes with number, title and mp3 url, in the following format:
+# {'num': '1', 'title': 'Speech to Text - Eric Bolo, Batvoice', 'mp3': 'https://www.buzzsprout.com/159584/691682-speech-to-text-eric-bolo-batvoice-voice-tech-podcast-ep-001.mp3'},
+# escape any ' with \
 # MUST remove any ampersands (&) or feed will break
 episodes = [
     {'num': '1', 'title': 'Speech to Text - Eric Bolo, Batvoice', 'mp3': 'https://www.buzzsprout.com/159584/691682-speech-to-text-eric-bolo-batvoice-voice-tech-podcast-ep-001.mp3'},
@@ -30,13 +32,12 @@ episodes = [
     {'num': '12', 'title': 'Fast Scalable Voice IoT Apps - Syed Ahmed, PubNub', 'mp3': 'https://www.buzzsprout.com/159584/829047-fast-scalable-voice-iot-apps-syed-ahmed-pubnub-voice-tech-podcast-ep-012.mp3'}
 ]
 
-# episode_string = "Episode 12 - Fast Scalable Voice IoT Apps - Syed Ahmed, PubNub, Episode 11 - Audio Branding and Sound Design - Sebastian Hanfland, Hanfland and Friends"
+# build the episode 
 episode_string = ''.join([''.join(['Episode ', ep['num'], ' - ', ep['title'], '. ']) for ep in reversed(episodes)])
 episode_string = episode_string[:-2]  # remove final comma
-# episode_string = 'hello hello hello'
-# {"topics":"Here are the available episodes. When you know what episode to play, you can interrupt me anytime by saying, 'Alexa, play Episode 7, or whatever episode number it is'. Here you go: Episode 20 - Jeanine\u2019s Spanish Siesta, Episode 19 - Underrated Travel Locations: Guatemala, Episode 18 - Big Lovin\u2019 Utah\u2019s National Parks, Episode 17 - Packing Light, Light-ish\u2026, Episode 16 - Pod Q&amp;A \u2013 Unlimited Data Abroad?, Episode 15 - A Little Bit of Work Travel &amp; A Lot A Bit of Soccer, Episode 14 - South Africa Travel Tips &amp; World Cup 2010, Episode 13 - Thank you, Anthony Bourdain, Episode 12 - Iceland &amp; Panama; Let\u2019s Explore the World Cup Newbies, Episode 11 - Korean Spa Day\u2026 kinda, Episode 10 - Back to Life, Back from the Philippines, Episode 9 - Tips for Travel Beginners, Episode 8 - Some of Our Favorite Places, Episode 7 - Solo Dolo Traveling, Episode 6 - Road Trip Tips &amp; Gas Station Snacks, Episode 5 - Pod Q&amp;A \u2013 Strangers?, Episode 4 - 2018 Travel Plan, Planning, Episode 3 - Packing For Hiking Trips; Don\u2019t Forget Your Poop Shovel!, Episode 2 - How to Get the Cheapest Airfare; Bc We\u2019re Poor, Episode 1 - Intro to Podcast","min_episode":1,"max_episode":20}
 episode_feed = {'topics': episode_string, 'min_episode': 1, 'max_episode': len(episodes)}
 
+# class to process request for a specific episode
 class Episode(Resource):
     def get(self, num):
         try:
@@ -46,19 +47,28 @@ class Episode(Resource):
         except IndexError:
             return 'Episode not found', 404
 
-# hit http://127.0.0.1:5000/ep/1 for episode 1
-# hit http://127.0.0.1:5000/ep/0 for last episode
+# For episode 1:
+# debug: http://127.0.0.1:5000/ep/1
+# live: https://voicetechpodcast-episodes.herokuapp.com/ep/1
+# For last episode:
+# debug: http://127.0.0.1:5000/ep/0
+# live: https://voicetechpodcast-episodes.herokuapp.com/ep/0
+# sample output: {"num": "12", "title": "Fast Scalable Voice IoT Apps - Syed Ahmed, PubNub", "mp3": "https://www.buzzsprout.com/159584/829047-fast-scalable-voice-iot-apps-syed-ahmed-pubnub-voice-tech-podcast-ep-012.mp3"}
 api.add_resource(Episode, '/ep/<string:num>')
 
+# class to process request for list of all episodes
 class Feed(Resource):
     def get(self):
         return episode_feed, 200
 
-# hit http://127.0.0.1:5000/feed
+# debug: hit http://127.0.0.1:5000/feed
+# live: hit https://voicetechpodcast-episodes.herokuapp.com/feed
+# sample output: {"topics": "Episode 12 - Fast Scalable Voice IoT Apps - Syed Ahmed, PubNub. Episode 11 - Audio Branding and Sound Design - Sebastian Hanfland, Hanfland and Friends. Episode 10 - Podcasts of the Future - Bryan Colligan, AlphaVoice. Episode 9 - Hum a Fingerprint, Extract a Melody - Dogac Basaran, CNRS. Episode 8 - Signal Processing Basics for Audio - Dogac Basaran, CNRS. Episode 7 - Perception of Smiles in the Voice - Pablo Arias, IRCAM. Episode 6 - Deaf Person Calling - Benjamin Etienne, Rogervoice. Episode 5 - The Art of Sound in Motion - Greg Beller, IRCAM. Episode 4 - Building Knight Rider's KITT - Charles Cadbury, Champers Advisory. Episode 3 - Vivatech 2018 Voice Startup Summary. Episode 2 - Voice AI for eCommerce - John Fitzpatrick, Voysis. Episode 1 - Speech to Text - Eric Bolo, Batvoice", "min_episode": 1, "max_episode": 12}
 api.add_resource(Feed, '/feed')
 
 # app.run(debug=False)
 
+# main method that runs on program start, and listens for incoming requests for episodes
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5000)) #The port to be listening to — hence, the URL must be <hostname>:<port>/ inorder to send the request to this program
     app.run(host='0.0.0.0', port=port)  #Start listening
