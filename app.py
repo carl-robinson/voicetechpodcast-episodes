@@ -13,7 +13,10 @@ import os
 app = Flask(__name__)
 api = Api(app)
 
-# list of dictionaries of episodes with number, title and mp3 url, in the following format:
+# ######################################
+# Update this list with your own episodes
+# ######################################
+# List of dictionaries of episodes with number, title and mp3 url, in the following format:
 # {'num': '1', 'title': 'Speech to Text - Eric Bolo, Batvoice', 'mp3': 'https://www.buzzsprout.com/159584/691682-speech-to-text-eric-bolo-batvoice-voice-tech-podcast-ep-001.mp3'},
 # escape any ' with \
 # MUST remove any ampersands (&) or feed will break
@@ -31,8 +34,10 @@ episodes = [
     {'num': '11', 'title': 'Audio Branding and Sound Design - Sebastian Hanfland, Hanfland and Friends', 'mp3': 'https://www.buzzsprout.com/159584/817053-audio-branding-sound-design-sebastian-hanfland-hanfland-friends-voice-tech-podcast-ep-011.mp3'},
     {'num': '12', 'title': 'Fast Scalable Voice IoT Apps - Syed Ahmed, PubNub', 'mp3': 'https://www.buzzsprout.com/159584/829047-fast-scalable-voice-iot-apps-syed-ahmed-pubnub-voice-tech-podcast-ep-012.mp3'}
 ]
+# ######################################
 
-# build the episode 
+
+# build the episode string
 episode_string = ''.join([''.join(['Episode ', ep['num'], ' - ', ep['title'], '. ']) for ep in reversed(episodes)])
 episode_string = episode_string[:-2]  # remove final comma
 episode_feed = {'topics': episode_string, 'min_episode': 1, 'max_episode': len(episodes)}
@@ -47,10 +52,11 @@ class Episode(Resource):
         except IndexError:
             return 'Episode not found', 404
 
-# For episode 1:
+# url endpoint for information on a specific episode
+# For a specified episode e.g. episode 1:
 # debug: http://127.0.0.1:5000/ep/1
 # live: https://voicetechpodcast-episodes.herokuapp.com/ep/1
-# For last episode:
+# For the latest episode:
 # debug: http://127.0.0.1:5000/ep/0
 # live: https://voicetechpodcast-episodes.herokuapp.com/ep/0
 # sample output: {"num": "12", "title": "Fast Scalable Voice IoT Apps - Syed Ahmed, PubNub", "mp3": "https://www.buzzsprout.com/159584/829047-fast-scalable-voice-iot-apps-syed-ahmed-pubnub-voice-tech-podcast-ep-012.mp3"}
@@ -61,11 +67,13 @@ class Feed(Resource):
     def get(self):
         return episode_feed, 200
 
+# url endpoint for list of all episodes
 # debug: hit http://127.0.0.1:5000/feed
 # live: hit https://voicetechpodcast-episodes.herokuapp.com/feed
 # sample output: {"topics": "Episode 12 - Fast Scalable Voice IoT Apps - Syed Ahmed, PubNub. Episode 11 - Audio Branding and Sound Design - Sebastian Hanfland, Hanfland and Friends. Episode 10 - Podcasts of the Future - Bryan Colligan, AlphaVoice. Episode 9 - Hum a Fingerprint, Extract a Melody - Dogac Basaran, CNRS. Episode 8 - Signal Processing Basics for Audio - Dogac Basaran, CNRS. Episode 7 - Perception of Smiles in the Voice - Pablo Arias, IRCAM. Episode 6 - Deaf Person Calling - Benjamin Etienne, Rogervoice. Episode 5 - The Art of Sound in Motion - Greg Beller, IRCAM. Episode 4 - Building Knight Rider's KITT - Charles Cadbury, Champers Advisory. Episode 3 - Vivatech 2018 Voice Startup Summary. Episode 2 - Voice AI for eCommerce - John Fitzpatrick, Voysis. Episode 1 - Speech to Text - Eric Bolo, Batvoice", "min_episode": 1, "max_episode": 12}
 api.add_resource(Feed, '/feed')
 
+# uncomment this line and comment the main method to run debug locally
 # app.run(debug=False)
 
 # main method that runs on program start, and listens for incoming requests for episodes
