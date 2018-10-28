@@ -32,7 +32,8 @@ episodes = [
     {'num': '9', 'title': 'Hum a Fingerprint, Extract a Melody - Dogac Basaran, CNRS', 'mp3': 'https://www.buzzsprout.com/159584/791569-hum-a-fingerprint-extract-a-melody-dogac-basaran-cnrs-voice-tech-podcast-ep-009.mp3'},
     {'num': '10', 'title': 'Podcasts of the Future - Bryan Colligan, AlphaVoice', 'mp3': 'https://www.buzzsprout.com/159584/804581-podcasts-of-the-future-bryan-colligan-alphavoice-voice-tech-podcast-ep-010.mp3'},
     {'num': '11', 'title': 'Audio Branding and Sound Design - Sebastian Hanfland, Hanfland and Friends', 'mp3': 'https://www.buzzsprout.com/159584/817053-audio-branding-sound-design-sebastian-hanfland-hanfland-friends-voice-tech-podcast-ep-011.mp3'},
-    {'num': '12', 'title': 'Fast Scalable Voice IoT Apps - Syed Ahmed, PubNub', 'mp3': 'https://www.buzzsprout.com/159584/829047-fast-scalable-voice-iot-apps-syed-ahmed-pubnub-voice-tech-podcast-ep-012.mp3'}
+    {'num': '12', 'title': 'Fast Scalable Voice IoT Apps - Syed Ahmed, PubNub', 'mp3': 'https://www.buzzsprout.com/159584/829047-fast-scalable-voice-iot-apps-syed-ahmed-pubnub-voice-tech-podcast-ep-012.mp3'},
+    {'num': '13', 'title': 'Open Source Voice Assistants - Joshua Montgomery, MyCroft', 'mp3': 'https://www.buzzsprout.com/159584/843400-open-source-voice-assistants-joshua-montgomery-mycroft-voice-tech-podcast-ep-013.mp3'}
 ]
 # ######################################
 
