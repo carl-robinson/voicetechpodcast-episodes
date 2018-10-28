@@ -1,18 +1,3 @@
-from flask import Flask
-from flask_restful import Api, Resource
-import os
-
-# deployed here:
-# https://dashboard.heroku.com/apps/voicetechpodcast-episodes/deploy/github
-
-# links:
-# https://codeburst.io/this-is-how-easy-it-is-to-create-a-rest-api-8a25122ab1f3
-# https://medium.freecodecamp.org/how-to-host-lightweight-apps-for-free-a29773e5f39e
-
-# create objects
-app = Flask(__name__)
-api = Api(app)
-
 # ######################################
 # Update this list with your own episodes
 # ######################################
@@ -35,7 +20,25 @@ episodes = [
     {'num': '12', 'title': 'Fast Scalable Voice IoT Apps - Syed Ahmed, PubNub', 'mp3': 'https://www.buzzsprout.com/159584/829047-fast-scalable-voice-iot-apps-syed-ahmed-pubnub-voice-tech-podcast-ep-012.mp3'},
     {'num': '13', 'title': 'Open Source Voice Assistants - Joshua Montgomery, MyCroft', 'mp3': 'https://www.buzzsprout.com/159584/843400-open-source-voice-assistants-joshua-montgomery-mycroft-voice-tech-podcast-ep-013.mp3'}
 ]
+
 # ######################################
+# No need to touch the code below this point
+# ######################################
+
+from flask import Flask
+from flask_restful import Api, Resource
+import os
+
+# deployed here:
+# https://dashboard.heroku.com/apps/voicetechpodcast-episodes/deploy/github
+
+# links:
+# https://codeburst.io/this-is-how-easy-it-is-to-create-a-rest-api-8a25122ab1f3
+# https://medium.freecodecamp.org/how-to-host-lightweight-apps-for-free-a29773e5f39e
+
+# create objects
+app = Flask(__name__)
+api = Api(app)
 
 
 # build the episode string
