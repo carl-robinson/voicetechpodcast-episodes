@@ -20,7 +20,8 @@ episodes = [
     {'num': '12', 'title': 'Fast Scalable Voice IoT Apps - Syed Ahmed, PubNub', 'mp3': 'https://www.buzzsprout.com/159584/829047-fast-scalable-voice-iot-apps-syed-ahmed-pubnub-voice-tech-podcast-ep-012.mp3'},
     {'num': '13', 'title': 'Open Source Voice Assistants - Joshua Montgomery, MyCroft', 'mp3': 'https://www.buzzsprout.com/159584/843400-open-source-voice-assistants-joshua-montgomery-mycroft-voice-tech-podcast-ep-013.mp3'},
     {'num': '14', 'title': 'Voice Emotion Analytics - Florian Eyben, audEERING', 'mp3': 'https://www.buzzsprout.com/159584/857046-voice-emotion-analytics-florian-eyben-audeering-voice-tech-podcast-ep-014.mp3'},
-    {'num': '15', 'title': 'Conversational Marketing - Andy Mauro, Automat', 'mp3': 'https://www.buzzsprout.com/159584/869732-conversational-marketing-andy-mauro-automat-voice-tech-podcast-ep-015.mp3'}
+    {'num': '15', 'title': 'Conversational Marketing - Andy Mauro, Automat', 'mp3': 'https://www.buzzsprout.com/159584/869732-conversational-marketing-andy-mauro-automat-voice-tech-podcast-ep-015.mp3'},
+    {'num': '16', 'title': 'Your First Voice App - Hillary Long, Citro Digital', 'mp3': 'https://www.buzzsprout.com/159584/880700-your-first-voice-app-hillary-long-citro-digital-voice-tech-podcast-ep-016.mp3'}
 ]
 
 # ######################################
