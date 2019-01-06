@@ -22,7 +22,8 @@ episodes = [
     {'num': '14', 'title': 'Voice Emotion Analytics - Florian Eyben, audEERING', 'mp3': 'https://www.buzzsprout.com/159584/857046-voice-emotion-analytics-florian-eyben-audeering-voice-tech-podcast-ep-014.mp3'},
     {'num': '15', 'title': 'Conversational Marketing - Andy Mauro, Automat', 'mp3': 'https://www.buzzsprout.com/159584/869732-conversational-marketing-andy-mauro-automat-voice-tech-podcast-ep-015.mp3'},
     {'num': '16', 'title': 'Your First Voice App - Hillary Long, Citro Digital', 'mp3': 'https://www.buzzsprout.com/159584/880700-your-first-voice-app-hillary-long-citro-digital-voice-tech-podcast-ep-016.mp3'},
-    {'num': '17', 'title': 'Conversation Analysis - Elizabeth Stokoe, Loughborough University', 'mp3': 'https://www.buzzsprout.com/159584/898407-conversation-analysis-e-stokoe-l-boro-s-albert-tufts-voice-tech-podcast-ep-017.mp3'}
+    {'num': '17', 'title': 'Conversation Analysis - Elizabeth Stokoe, Loughborough University', 'mp3': 'https://www.buzzsprout.com/159584/898407-conversation-analysis-e-stokoe-l-boro-s-albert-tufts-voice-tech-podcast-ep-017.mp3'},
+    {'num': '18', 'title': 'Prototypes and Personas - Kasia Ryniak and Rafal Cymerys, Upside', 'mp3': 'https://www.buzzsprout.com/159584/910239-prototypes-personas-kasia-ryniak-rafal-cymerys-upside-voice-tech-podcast-ep-018.mp3'}
 ]
 
 # ######################################
