@@ -24,7 +24,7 @@ episodes = [
     {'num': '16', 'title': 'Your First Voice App - Hillary Long, Citro Digital', 'mp3': 'https://www.buzzsprout.com/159584/880700-your-first-voice-app-hillary-long-citro-digital-voice-tech-podcast-ep-016.mp3'},
     {'num': '17', 'title': 'Conversation Analysis - Elizabeth Stokoe, Loughborough University', 'mp3': 'https://www.buzzsprout.com/159584/898407-conversation-analysis-e-stokoe-l-boro-s-albert-tufts-voice-tech-podcast-ep-017.mp3'},
     {'num': '18', 'title': 'Prototypes and Personas - Kasia Ryniak and Rafal Cymerys, Upside', 'mp3': 'https://www.buzzsprout.com/159584/910239-prototypes-personas-kasia-ryniak-rafal-cymerys-upside-voice-tech-podcast-ep-018.mp3'},
-    {'num': '19', 'title': 'Elevated Voice Design', 'mp3': 'https://www.buzzsprout.com/159584/926167-elevated-voice-design-vasili-shynkarenka-invocable-voice-tech-podcast-ep-019.mp3'}
+    {'num': '19', 'title': 'Elevated Voice Design - Vasili Shynkarenka, Invocable', 'mp3': 'https://www.buzzsprout.com/159584/926167-elevated-voice-design-vasili-shynkarenka-invocable-voice-tech-podcast-ep-019.mp3'}
 ]
 
 # ######################################
