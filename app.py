@@ -27,7 +27,8 @@ episodes = [
     {'num': '19', 'title': 'Elevated Voice Design - Vasili Shynkarenka, Invocable', 'mp3': 'https://www.buzzsprout.com/159584/926167-elevated-voice-design-vasili-shynkarenka-invocable-voice-tech-podcast-ep-019.mp3'},
     {'num': '20', 'title': 'Machine Learning Signals - Christopher Oates, audEERING', 'mp3': 'https://www.buzzsprout.com/159584/942070-machine-learning-signals-christopher-oates-audeering-voice-tech-podcast-ep-020.mp3'},
     {'num': '21', 'title': 'Nanocasting - Sean Gilligan, Sound Branch', 'mp3': 'https://www.buzzsprout.com/159584/959644-nanocasting-sean-gilligan-sound-branch-voice-tech-podcast-ep-021.mp3'},
-    {'num': '22', 'title': 'Voice Retail - Shilp Agarwal, Blutag', 'mp3': 'https://www.buzzsprout.com/159584/979019-voice-retail-shilp-agarwal-blutag-voice-tech-podcast-ep-022.mp3'}
+    {'num': '22', 'title': 'Voice Retail - Shilp Agarwal, Blutag', 'mp3': 'https://www.buzzsprout.com/159584/979019-voice-retail-shilp-agarwal-blutag-voice-tech-podcast-ep-022.mp3'},
+    {'num': '23', 'title': 'Voice Search Results - Dustin Coates, Algolia', 'mp3': 'https://www.buzzsprout.com/159584/997909-voice-search-results-dustin-coates-algolia-voice-tech-podcast-ep-023.mp3'}
 
 ]
 
