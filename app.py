@@ -30,8 +30,8 @@ episodes = [
     {'num': '22', 'title': 'Voice Retail - Shilp Agarwal, Blutag', 'mp3': 'https://www.buzzsprout.com/159584/979019-voice-retail-shilp-agarwal-blutag-voice-tech-podcast-ep-022.mp3'},
     {'num': '23', 'title': 'Voice Search Results - Dustin Coates, Algolia', 'mp3': 'https://www.buzzsprout.com/159584/997909-voice-search-results-dustin-coates-algolia-voice-tech-podcast-ep-023.mp3'},
     {'num': '24', 'title': 'Biometric Authentication - Alexey Khitrov, ID R&D', 'mp3': 'https://www.buzzsprout.com/159584/1017710-biometric-authentication-alexey-khitrov-id-r-d-voice-tech-podcast-ep-024.mp3'},
-    {'num': '25', 'title': 'Voice Actors & Synthetics - David Ciccarelli, Voices.com', 'mp3': 'https://www.buzzsprout.com/159584/1037914-voice-actors-synthetics-david-ciccarelli-voices-com-voice-tech-podcast-ep-025.mp3'}
-
+    {'num': '25', 'title': 'Voice Actors & Synthetics - David Ciccarelli, Voices.com', 'mp3': 'https://www.buzzsprout.com/159584/1037914-voice-actors-synthetics-david-ciccarelli-voices-com-voice-tech-podcast-ep-025.mp3'},
+    {'num': '26', 'title': 'Sound Recognition - Dr. Chris Mitchell, Audio Analytic', 'mp3': 'https://www.buzzsprout.com/159584/1058888-sound-recognition-dr-chris-mitchell-audio-analytic-voice-tech-podcast-ep-026.mp3'}
 ]
 
 # ######################################
